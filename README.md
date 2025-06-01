@@ -28,7 +28,7 @@ and open the `/src/index.html` file in your browser.
 
 Web Scraper leverages [**Puter.js**](https://developer.puter.com/) to overcome the fundamental challenge of cross-origin requests in web browsers. Traditional web applications are restricted by CORS (Cross-Origin Resource Sharing) policies, which prevent direct requests to external domains from browser-based JavaScript.
 
-Specifically, the application uses [`puter.net.fetch()`](https://docs.puter.com/Networking/fetch/) to make cross-origin HTTP requests and bypass CORS restrictions. This allows the app to scrape any public website without server-side configuration.
+Specifically, Web Scraper uses [`puter.net.fetch()`](https://docs.puter.com/Networking/fetch/) to make cross-origin HTTP requests and bypass CORS restrictions without needing a proxy server. This allows the app to scrape public websites without server-side configuration.
 
 The scraped HTML is then parsed using the browser's built-in DOMParser API, and data is extracted using standard CSS selectors via `querySelectorAll()`.
 
