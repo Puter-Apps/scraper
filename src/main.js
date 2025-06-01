@@ -139,15 +139,6 @@ function displayResults(results) {
     
     let html = `
         <h3>📊 Found ${results.length} results</h3>
-        <div class="save-section">
-            <div class="flex-row">
-                <div class="input-group">
-                    <label for="filename">Save results to file</label>
-                    <input type="text" id="filename" value="scraped_data.json" placeholder="filename.json">
-                </div>
-                <button class="btn" onclick="saveResults()">💾 Save to Cloud</button>
-            </div>
-        </div>
     `;
     
     results.forEach(result => {
@@ -170,41 +161,6 @@ function showError(message) {
             <strong>❌ Error:</strong> ${escapeHtml(message)}
         </div>
     `;
-}
-
-async function saveResults() {
-    if (scrapedData.length === 0) {
-        showError('No data to save. Please scrape a website first.');
-        return;
-    }
-
-    const filename = document.getElementById('filename').value || 'scraped_data.json';
-    
-    try {
-        const dataToSave = {
-            scrapedAt: new Date().toISOString(),
-            url: document.getElementById('url').value,
-            selector: document.getElementById('selector').value,
-            attribute: document.getElementById('attribute').value,
-            resultCount: scrapedData.length,
-            results: scrapedData
-        };
-
-        await puter.fs.write(filename, JSON.stringify(dataToSave, null, 2));
-        
-        // Show success message
-        const resultsSection = document.getElementById('resultsSection');
-        const successDiv = document.createElement('div');
-        successDiv.style.cssText = 'background: #d4edda; color: #155724; padding: 15px; border-radius: 8px; margin-bottom: 20px;';
-        successDiv.innerHTML = `<strong>✅ Success:</strong> Results saved to <code>${filename}</code> in your cloud storage!`;
-        resultsSection.insertBefore(successDiv, resultsSection.firstChild);
-        
-        // Remove success message after 5 seconds
-        setTimeout(() => successDiv.remove(), 5000);
-        
-    } catch (error) {
-        showError(`Failed to save results: ${error.message}`);
-    }
 }
 
 function escapeHtml(text) {
