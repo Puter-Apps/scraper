@@ -2,7 +2,7 @@
   <a href="https://puter.com/app/scraper" target="_blank">Web Scraper</a>
 </h1>
 
-<p align="center">A simple web-based scraping tool that allows you to extract data from any website using CSS selectors.
+<p align="center">A simple web-based scraping tool that allows you to extract data from websites using CSS selectors.
 </p>
 
 <p align="center">
