@@ -6,7 +6,7 @@
 </p>
 
 <p align="center">
-  <img src="screenshot.png" alt="Screenshot" width="600" />
+  <img src="screenshot.png" alt="Screenshot"/>
 </p>
 
 
